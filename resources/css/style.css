@@ -27,7 +27,7 @@ h3 {
   color: #4a4a4a;
 }
 
-p{
+p {
   font-size: .75rem;
   color: gray;
   line-height: 1.4;
@@ -150,7 +150,8 @@ header #light {
   margin: 2rem 1.5rem;
 }
 
-.content .image-container img {
+.content .image-container img,
+.content .image-container video {
   max-height: 100%;
   max-width: 100%;
 }
@@ -189,8 +190,9 @@ header #light {
 .content-right .item {
   display: flex;
   align-items: center;
-    border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eee;
   padding-bottom: 2px;
+  transition: background-color 250ms linear 50ms;
 }
 
 .item:hover {
@@ -206,6 +208,7 @@ header #light {
 .item a {
   font-size: .75rem;
 }
+
 
 /* Content - Mobile */
 
@@ -245,15 +248,53 @@ header #light {
   text-align: left;
 }
 
-.course .details .capitalize {
+.capitalize {
   margin: .5rem 0;
   text-transform: uppercase;
 }
 
-.course .details .camel-case {
+.camel-case {
   text-transform: capitalize;
 }
 
 /* Courses - Mobile */
+
+@media screen only and (max-width: 360px) {}
+
+/* Thesis Section */
+
+.thesis {
+  border-bottom: 1px solid #eee;
+}
+
+.thesis h1 {
+  font-size: 1rem;
+  margin: 1.5rem 0 .5rem 0;
+}
+
+.thesis p {
+  font-size: .75rem;
+}
+
+/* Thesis - Mobile */
+
+@media screen only and (max-width: 360px) {}
+
+/* Footer Section */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem 2rem 1.5rem;
+  font-size: .6rem;
+  color: #7e7e7e;
+  font-weight: bold;
+}
+
+.terms-area a {
+  margin-left: .5rem;
+}
+
+/* Footer - Mobile */
 
 @media screen only and (max-width: 360px) {}
