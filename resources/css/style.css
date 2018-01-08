@@ -1,13 +1,6 @@
 html {
   font-size: 16px;
-  font-family: "helvetica", sans-serif;
-}
-
-/* Header */
-
-body {
-  width: 75%;
-  margin: auto;
+  font-family: "Roboto", "helvetica", sans-serif;
 }
 
 h1 {
@@ -28,20 +21,25 @@ h3 {
 }
 
 p {
-  font-size: .75rem;
-  color: gray;
+  font-size: .875rem;
+  color: #636363;
   line-height: 1.4;
 }
 
-.main-container {
-  padding: 0 1px;
-  border-left: 1px solid #eee;
-  border-right: 1px solid #eee;
+span {
+  font-size: .875rem;
+  color: #636363;
 }
 
 a {
   text-decoration: none;
 }
+
+a:visited {
+  color: #7e7e7e;
+}
+
+/* Header */
 
 header {
   height: 4rem;
@@ -50,6 +48,9 @@ header {
 
 header .mobile {
   display: none;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
 header .desktop {
@@ -62,7 +63,6 @@ header .desktop {
 header .logo {
   display: flex;
   align-items: center;
-  margin-left: 1.5rem;
   height: 2rem;
 }
 
@@ -82,7 +82,8 @@ header nav span:nth-child(1n+2) {
 }
 
 header #bold {
-  font-weight: 900;
+  font-weight: bolder;
+  color: black;
 }
 
 header #light {
@@ -92,7 +93,24 @@ header #light {
 
 /* Header - Mobile */
 
-@media screen only and (max-width: 360px) {}
+@media only screen and (max-width: 710px) {
+  header .desktop {
+    display: none;
+  }
+
+  header .mobile {
+    display: flex;
+  }
+
+  header .logo {
+    flex-grow: 1;
+  }
+
+  header nav {
+    flex-grow: 2;
+    justify-content: space-between;
+  }
+}
 
 /* Banner */
 
@@ -103,7 +121,7 @@ header #light {
   justify-content: flex-start;
 }
 
-.banner .image-container {
+.banner .media-container {
   width: 60%;
 }
 
@@ -137,7 +155,33 @@ header #light {
 
 /* Banner - Mobile */
 
-@media screen only and (max-width: 360px) {}
+@media only screen and (max-width: 710px) {
+  .banner {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .banner .media-container {
+    width: 100%;
+  }
+  .banner .supporting-content {
+    width: 100%;
+    margin: 0;
+  }
+
+  .banner .supporting-content h1 {
+    margin: 2rem 1rem 1.5rem 1rem;
+  }
+
+  .banner .supporting-content h2 {
+    margin: 0 1rem 1.5rem 1rem;
+  }
+
+  .banner .supporting-content .button {
+    margin: 0 1rem 2rem 1rem;
+    background-color: #9b9b9b;
+  }
+}
 
 /* Content - Section */
 
@@ -150,8 +194,8 @@ header #light {
   margin: 2rem 1.5rem;
 }
 
-.content .image-container img,
-.content .image-container video {
+.content .media-container img,
+.content .media-container video {
   max-height: 100%;
   max-width: 100%;
 }
@@ -161,30 +205,26 @@ header #light {
 }
 
 .content-left p {
-  font-size: .875rem;
-  color: gray;
   margin-bottom: 2rem;
-  line-height: 1.4;
 }
 
-.content-left span {
-  font-size: .875rem;
-  color: gray;
-}
 
 .content .content-right {
-  margin-top: 1px;
   width: 40%;
 }
 
-.content-right .image-container {
+.content-right .media-container {
   max-width: 35%;
-  height: auto;
   margin: 1rem;
 }
 
+.content-right .media-container.mobile {
+  display: none;
+}
+
 .content-right {
-  border-left: 1px solid #eee
+  border-left: 1px solid #eee;
+  padding-top: 1rem;
 }
 
 .content-right .item {
@@ -201,18 +241,55 @@ header #light {
 
 .item p {
   margin: .5rem .25rem .5rem 0;
-
-  color: #3a3a3a;
 }
 
 .item a {
   font-size: .75rem;
+  color: #5496e3;
 }
 
 
 /* Content - Mobile */
 
-@media screen only and (max-width: 360px) {}
+@media only screen and (max-width: 710px) {
+
+  .content-right {
+    border: none;
+  }
+
+  #info-content .content-left {
+    display: none;
+  }
+
+  #info-content .content-right {
+    margin-top: 1px;
+    width: 100%;
+  }
+
+  .content .content-right .item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1rem 0 1rem;
+  }
+
+  #info-content .media-container {
+    margin: 0;
+    min-width: 100%;
+  }
+
+  .content-right .media-container.desktop {
+    display: none;
+  }
+
+  .content-right .media-container.mobile {
+    display: block;
+  }
+
+  .content-right .info {
+    margin: 1rem
+  }
+
+}
 
 /* Courses Section */
 
@@ -233,8 +310,7 @@ header #light {
 }
 
 .courses-container .course {
-  width: 29%;
-  flex-shrink: 2;
+  width: 30%;
   margin: 1rem;
   background-color: white;
 }
@@ -257,28 +333,89 @@ header #light {
   text-transform: capitalize;
 }
 
+.courses-container.mobile {
+  display: none;
+}
+
 /* Courses - Mobile */
 
-@media screen only and (max-width: 360px) {}
+@media only screen and (max-width: 710px) {
 
-/* Thesis Section */
+  .courses {
+    background-color: white;
+  }
+
+  .courses-container {
+    flex-direction: column;
+  }
+  .course {
+    min-width: 100%;
+  }
+
+  .courses-container.desktop {
+    display: none;
+  }
+
+  .courses-container.mobile {
+    display: block;
+  }
+
+  .courses-container.mobile h2 {
+    padding: 1rem;
+    margin-bottom: .5rem;
+    background-color: #d8d8d8;
+    text-align: left;
+  }
+
+}
+
+/* Thesis Section - note: most thesis parts use the same styles in content section. */
 
 .thesis {
   border-bottom: 1px solid #eee;
+  padding: 2rem 0;
 }
 
 .thesis h1 {
-  font-size: 1rem;
+  text-align: center;
+}
+
+.thesis h2 {
   margin: 1.5rem 0 .5rem 0;
 }
 
-.thesis p {
-  font-size: .75rem;
+.thesis .content-right {
+  border: none;
+}
+
+.thesis .item {
+  border: none;
 }
 
 /* Thesis - Mobile */
 
-@media screen only and (max-width: 360px) {}
+@media only screen and (max-width: 710px) {
+
+  #thesis-content .content-right,
+  #thesis-content h2,
+  #thesis-content p {
+    display: none;
+  }
+
+  .thesis {
+    border-top: 1px solid #eee;
+  }
+
+  #thesis-content .content-left {
+    width: 100%;
+    margin: 0
+  }
+
+  #thesis-content {
+    margin-top: 1.5rem;
+  }
+
+}
 
 /* Footer Section */
 
@@ -297,4 +434,13 @@ footer {
 
 /* Footer - Mobile */
 
-@media screen only and (max-width: 360px) {}
+@media only screen and (max-width: 710px) {
+  footer {
+    padding: 1rem;
+  }
+
+  .terms-area {
+    display: none
+  }
+
+}
